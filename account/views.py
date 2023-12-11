@@ -62,16 +62,6 @@ class ForgotPasswordView(APIView):
         return Response('вам отправлено письмо для восстовления пароля')
 
 
-# class ForgotPasswordView(APIView):
-#     def get(self, request, email):
-#         email = request.query_params.get('email')
-#         user = get_object_or_404(User, email=email)
-#         user.is_active = False
-#         user.create_activation_code()
-#         user.save()
-#         send_activation_code(email=user.email, code=user.activation_code, status='forgot_password')
-#         return Response('Вам отправлено письмо на почту', status=200)
-
 
 class ForgotPasswordComplete(APIView):
     def post(self, request):
